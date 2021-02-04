@@ -1,18 +1,13 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { add, remove, change} from './actions';
-import  Book  from './Book';
+import AddBook from './Components/AddBook'
+import BookContainer from './Components/BookContainer';
 
 
 function App() {
-
-  const bookList = useSelector(state => state.bookList)
-  const dispatch = useDispatch();
-
-
   return (
     <div className="App">
-      <Book/>
+      <AddBook/>
+      <BookContainer/>
     </div>
   );
 }
