@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addBook }  from '../actions'
+import { useDispatch } from 'react-redux';
+import { changeBook }  from '../actions'
 
-const AddBook = () => {
+const ChangeBooks = () => {
 
-    const bookArray = useSelector(state => state.bookList)
     const dispatch = useDispatch();
 
     //create state to store new book object
     const [newBook, setNewBook] = useState({
         title:'',
-        id: bookArray.length,
         price: "",
         genre: '',
         description: ''
@@ -24,18 +22,10 @@ const AddBook = () => {
     });
     }
 
-    const handleNewBookId = () => {
-        setNewBook({
-            ...newBook,
-            id: bookArray.length + 1
-        })
-    }
-
     //handle submit function
     const handleSubmit = e => {
         e.preventDefault();
-        handleNewBookId();
-        dispatch(addBook(newBook))
+        dispatch(changeBook(newBook))
     }
 
     return(
@@ -59,4 +49,4 @@ const AddBook = () => {
     )
 }
 
-export default AddBook;
+export default ChangeBooks;

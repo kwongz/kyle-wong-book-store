@@ -1,4 +1,4 @@
-export const addBook = (newBook) => {
+export const addBook = newBook => {
     console.log(newBook)
     return{
         type: 'ADD_BOOK',
@@ -6,9 +6,10 @@ export const addBook = (newBook) => {
     }
 }
 
-export const removeBook = () => {
+export const removeBook = book => {
     return{
         type: 'DELETE_BOOK',
+        payload: book
     }
 }
 
@@ -17,4 +18,6 @@ export const changeBook = () => {
         type: 'CHANGE_BOOK'
     }
 }
+
+
 

@@ -1,28 +1,37 @@
-import React from 'react'
+import React, { Fragment, useState }from 'react'
 import Book from './Book'
-import { useSelector, useDispatch } from 'react-redux';
-import { removeBook, changeBook} from '../actions';
+import ChangeBook from './ChangeBook'
+import Modal from "./ChangeBookModal";
+import { useSelector } from 'react-redux';
 
 const BookContainer = () => {
 
-    const bookList = useSelector(state => state.bookList)
-    const dispatch = useDispatch();
+    const bookArray = useSelector(state => state.bookList)
+    const [showPopUp, setShowPopUp] = useState(false)
+    
+
+    const handleGetBook = (book) => {
+        console.log(book)
+    }
+
+
+    
+
+
+    const listOfBooks = bookArray.map((book,index) => 
+        <Book book={book} key={index} openPopUp={setShowPopUp} handleGetBook={handleGetBook}/>)
 
     return (
-        <ul className='bookContainer'>
-            {bookList.map(book => {
-                return (
-                    <li className="book" key={book.id}>
-                        <div onClick={() => dispatch(changeBook())}>
-                            <h2>{book.title}</h2>
-                            <h3>{book.price}</h3>
-                            <span>{book.genre}</span>
-                        </div>
-                        <button onClick={() => dispatch(removeBook())}></button>
-                    </li>
-                )
-            })}
-        </ul>
+        <Fragment>
+            <ul className='bookContainer'>
+                {listOfBooks}
+            </ul>
+            <Modal show={showPopUp}>
+                <h1>Form to change book values</h1>
+                <ChangeBook/>
+                <button onClick={() => {setShowPopUp(false)}}>Close</button>
+            </Modal>
+        </Fragment>
     )
 }
 
