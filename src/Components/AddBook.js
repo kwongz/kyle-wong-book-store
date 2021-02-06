@@ -10,7 +10,7 @@ const AddBook = () => {
     //create state to store new book object
     const [newBook, setNewBook] = useState({
         title:'',
-        id: bookArray.length,
+        id: bookArray.bookList.length,
         price: "",
         genre: '',
         description: ''
@@ -27,7 +27,7 @@ const AddBook = () => {
     const handleNewBookId = () => {
         setNewBook({
             ...newBook,
-            id: bookArray.length + 1
+            id: bookArray.bookList.length + 1
         })
     }
 

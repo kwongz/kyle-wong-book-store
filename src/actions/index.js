@@ -13,9 +13,17 @@ export const removeBook = book => {
     }
 }
 
-export const changeBook = () => {
+export const targetBook = targetBook => {
     return{
-        type: 'CHANGE_BOOK'
+        type: 'TARGET_BOOK',
+        payload: targetBook
+    }
+}
+
+export const changeBook = changedBook => {
+    return{
+        type: 'CHANGE_BOOK',
+        payload: changedBook
     }
 }
 
