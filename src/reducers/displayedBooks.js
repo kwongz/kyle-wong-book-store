@@ -25,8 +25,8 @@ const initialState = {
     ],
     form: {
         title:'',
-        id: 0,
-        price: 0,
+        id: null,
+        price: null,
         genre: '',
         description: ''
     }
@@ -55,6 +55,18 @@ const displayedBooks = (state = initialState, action) => {
                         ...action.payload.book
                     }
             }
+        case 'CHANGE_BOOK':
+            //update form state to user changes
+            const updatedForm = {...state.form, ...action.payload}
+            console.log(updatedForm)
+            //find user selected book index in bookList state
+            const findBookIndex = state.bookList.findIndex(book => book.id === state.form.id)
+            console.log(state)
+        return {
+            ...state,
+                ...state.bookList[findBookIndex] = updatedForm,
+                ...state.form = updatedForm
+        }
         default:
             return state
         

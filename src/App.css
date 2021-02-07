@@ -1,0 +1,120 @@
+/* General Stylings */
+
+body {
+  background-color: #fdfdff;
+  color: #393d3f;
+  height: 100%;
+  position: relative;
+  /* top: -21px; */
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+div {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+/* Header Styling */
+header {
+  background-color: #c6c5b9;
+  padding: 5px;
+}
+
+h1 {
+  padding-left: 15px;
+}
+
+/* add book section */
+.addBookSection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.addBook {
+  margin: 15px auto;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  border: 2px solid #fdfdff;
+  background-color: #62929e;
+  color: #393d3f;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.addBook::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  width: 3em;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -4.5em;
+  transform: skewX(-45deg) translateX(0);
+  transition: none;
+}
+
+.addBook:hover {
+  background-color: #62929e;
+  color: #fff;
+  border-bottom: 4px solid darken(#62929e, 10%);
+}
+
+.addBook:hover::before {
+  transform: skewX(-45deg) translateX(13.5em);
+  transition: all 0.5s ease-in-out;
+}
+.addBook:active {
+  background-color: #546a7b;
+}
+
+/* popUpForm styling applied to both add and change book */
+/* .addBookSection div:only-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(57, 61, 63, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+.formContainer {
+  background-color: #fdfdff;
+  border: 1px solid red;
+}
+
+.popUpForm {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.popUpForm label {
+  width: 50%;
+}
+
+.popUpForm button {
+  position: absolute;
+  bottom: 10px;
+}

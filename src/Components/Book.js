@@ -19,7 +19,7 @@ const Book = ({book, openPopUp, getBook}) => {
                 <h3>{book.price}</h3>
                 <span>{book.genre}</span>
             </div>
-            <button onClick={() => dispatch(removeBook(book))}></button>
+            <button onClick={() => dispatch(removeBook(book))}>Delete</button>
         </li>
     )
 }

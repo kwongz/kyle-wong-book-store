@@ -26,7 +26,9 @@ const BookContainer = () => {
         dispatch(targetBook(book))
     }
 
-    console.log(bookArray.form)
+    const closeFormOnSubmit = () => {
+        setShowPopUp(false)
+    }
 
     const listOfBooks = bookArray.bookList.map((book,index) => 
         <Book book={book} key={index} openPopUp={setShowPopUp} getBook={getBook}/>)
@@ -36,10 +38,13 @@ const BookContainer = () => {
             <ul className='bookContainer'>
                 {listOfBooks}
             </ul>
-            <Modal show={showPopUp}>
+            <Modal show={showPopUp} setShowPopUp={setShowPopUp}>
                 <h1>Form to change book values</h1>
                 <h2>{selectedBook.book.title}</h2>
-                <ChangeBook/>
+                <h2>{selectedBook.book.price}</h2>
+                <h2>{selectedBook.book.genre}</h2>
+                <h2>{selectedBook.book.description}</h2>
+                <ChangeBook closeFormOnSubmit={closeFormOnSubmit}/>
                 <button onClick={() => {setShowPopUp(false)}}>Close</button>
             </Modal>
         </Fragment>
