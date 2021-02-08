@@ -98,7 +98,7 @@ h1 {
 
 /* popUpForm styling applied to both add and change book */
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   height: 100vh;
@@ -112,7 +112,6 @@ h1 {
 
 .formContainer {
   background-color: #fdfdff;
-  height: 600px;
   width: 500px;
   position: relative;
 }
@@ -138,13 +137,9 @@ h1 {
   margin: 15px 0px;
 }
 
-.inputContainer input {
+.inputContainer input,
+textarea {
   width: 60%;
-}
-
-.popUpForm button {
-  position: absolute;
-  bottom: 10px;
 }
 
 .closePopUp {
@@ -189,4 +184,38 @@ h1 {
   background-color: #537081;
   cursor: pointer;
   color: #fdfdff;
+}
+
+@media (max-width: 850px) {
+  .bookContainer {
+    flex-direction: column;
+  }
+  .book {
+    width: 80%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .inputContainer {
+    flex-direction: column;
+  }
+
+  .formContainer {
+    width: 300px;
+    overflow-y: scroll;
+  }
+
+  .inputContainer label {
+    padding-bottom: 10px;
+  }
+
+  .inputContainer input,
+  textarea {
+    width: 80%;
+  }
+
+  textarea {
+    height: 300px;
+  }
 }

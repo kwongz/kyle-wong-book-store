@@ -11,10 +11,14 @@ const ChangeBooks = ({closeFormOnSubmit}) => {
 
     const handleChange = (e) => {
     const value = e.target.value;
-    setNewBook({
-        ...newBook,
-        [e.target.name]: value
-    });
+    console.log(e.target.value)
+
+    if (e.target.value.length > 5) {
+        setNewBook({
+            ...newBook,
+            [e.target.name]: value
+        });
+    } else return
     }
 
     //handle submit function
@@ -26,6 +30,7 @@ const ChangeBooks = ({closeFormOnSubmit}) => {
 
     return(
         <div>
+            <h2>Edit Book Details</h2>
             <form className="popUpForm" onSubmit={handleSubmit}>
 
                 <div className="inputContainer">
@@ -45,7 +50,7 @@ const ChangeBooks = ({closeFormOnSubmit}) => {
 
                 <div className="inputContainer">
                     <label htmlFor='description'><span className='categoryTitle'>Description:</span></label>
-                    <input type='textarea' id="description" name='description' onChange={handleChange}></input>
+                    <textarea type='textarea' id="description" name='description' onChange={handleChange} rows="3"></textarea>
                 </div>
 
                 <button className="submitPopUp">Submit</button>
