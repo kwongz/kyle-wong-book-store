@@ -39,13 +39,19 @@ const BookContainer = () => {
                 {listOfBooks}
             </ul>
             <Modal show={showPopUp} setShowPopUp={setShowPopUp}>
-                <h1>Form to change book values</h1>
-                <h2>{selectedBook.book.title}</h2>
-                <h2>{selectedBook.book.price}</h2>
-                <h2>{selectedBook.book.genre}</h2>
-                <h2>{selectedBook.book.description}</h2>
-                <ChangeBook closeFormOnSubmit={closeFormOnSubmit}/>
-                <button onClick={() => {setShowPopUp(false)}}>Close</button>
+                <div className="overlay">
+                    <div className="formContainer changeBook">
+                        <h2>Book Details</h2>
+                        <div className="descriptionContainer">
+                            <p><span className='categoryTitle'>Title:</span> {selectedBook.book.title}</p>
+                            <p><span className='categoryTitle'>Price:</span> $ {selectedBook.book.price}</p>
+                            <p><span className='categoryTitle'>Genre:</span> {selectedBook.book.genre}</p>
+                            <p><span className='categoryTitle'>Description:</span> {selectedBook.book.description}</p>
+                        </div>
+                        <ChangeBook closeFormOnSubmit={closeFormOnSubmit}/>
+                        <button className="closePopUp" onClick={() => {setShowPopUp(false)}}>Close</button>
+                    </div>
+                </div>
             </Modal>
         </Fragment>
     )

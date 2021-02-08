@@ -9,17 +9,23 @@ const Book = ({book, openPopUp, getBook}) => {
     const handleBookClick = book => {
         openPopUp(true);
         getBook(book);
+    }
 
+    const handleKeyUp = (e,book) => {
+        if (e.keyCode === 13){
+            openPopUp(true);
+            getBook(book);
+        }
     }
 
     return(
         <li className="book">
-            <div onClick={() => handleBookClick({book})}>
+            <div tabIndex='0' onClick={() => handleBookClick({book})} onKeyDown={(e) => {handleKeyUp(e,{book})}}>
                 <h2>{book.title}</h2>
-                <h3>{book.price}</h3>
-                <span>{book.genre}</span>
+                <h3>${book.price}</h3>
+                <h4>{book.genre}</h4>
             </div>
-            <button onClick={() => dispatch(removeBook(book))}>Delete</button>
+            <button className='deleteBook' onClick={() => dispatch(removeBook(book))}>Delete</button>
         </li>
     )
 }

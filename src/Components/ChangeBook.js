@@ -26,20 +26,29 @@ const ChangeBooks = ({closeFormOnSubmit}) => {
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='title'>Title</label>
-                <input type='text' id="title" name='title' onChange={handleChange}></input>
+            <form className="popUpForm" onSubmit={handleSubmit}>
 
-                <label htmlFor='price'>Price</label>
-                <input type='number' id="price" name='price' onChange={handleChange}></input>
+                <div className="inputContainer">
+                    <label htmlFor='title'><span className='categoryTitle'>Title:</span></label>
+                    <input type='text' id="title" name='title' onChange={handleChange} ></input>
+                </div>
 
-                <label htmlFor='genre'>Genre</label>
-                <input type='text' id="genre" name='genre' onChange={handleChange}></input>
+                <div className="inputContainer">                             
+                    <label htmlFor='price'><span className='categoryTitle'>Price:</span></label>
+                    <input type='number' id="price" name='price' onChange={handleChange}></input>
+                </div>
 
-                <label htmlFor='description'>description</label>
-                <input type='text' id="description" name='description' onChange={handleChange}></input>
+                <div className="inputContainer">
+                    <label htmlFor='genre'><span className='categoryTitle'>Genre:</span></label>
+                    <input type='text' id="genre" name='genre' onChange={handleChange}></input>
+                </div>
 
-                <button>Submit</button>
+                <div className="inputContainer">
+                    <label htmlFor='description'><span className='categoryTitle'>Description:</span></label>
+                    <input type='textarea' id="description" name='description' onChange={handleChange}></input>
+                </div>
+
+                <button className="submitPopUp">Submit</button>
             </form>
         </div>
     )
