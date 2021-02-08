@@ -11,14 +11,10 @@ const ChangeBooks = ({closeFormOnSubmit}) => {
 
     const handleChange = (e) => {
     const value = e.target.value;
-    console.log(e.target.value)
-
-    if (e.target.value.length > 5) {
         setNewBook({
             ...newBook,
             [e.target.name]: value
         });
-    } else return
     }
 
     //handle submit function
